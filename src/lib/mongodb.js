@@ -2,7 +2,11 @@
 
 import { MongoClient } from 'mongodb'
 
+
+// Ganti ini dengan URI MongoDB kamu secara langsung
+// const uri = 'mongodb://username:password@host:port/database'
 const uri = process.env.MONGODB_URI
+
 const options = {
   useUnifiedTopology: true,
   useNewUrlParser: true,
@@ -10,6 +14,10 @@ const options = {
 
 let client
 let clientPromise
+
+// if (!uri) {
+//   throw new Error('Add Mongo URI to the code directly')
+// }
 
 if (!process.env.MONGODB_URI) {
   throw new Error('Add Mongo URI to .env.local')
